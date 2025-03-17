@@ -131,6 +131,7 @@ int Func(const char* filename, const char* output)
         flag++;
     }
 
+    
     for(int i=0;i<toDeleteCount;i++)
     {
         for(int j=0;j<m.count;j++)
@@ -140,6 +141,7 @@ int Func(const char* filename, const char* output)
             }
         }
     }
+    
 
     // Вывод данных для проверки
     for (int i = 0; i < m.count; i++) {
