@@ -15,7 +15,6 @@ int Func(const char* filename, const char* output)
     int delCounter = 0;
     int flag = 0;
     int C = 0;
-    int flag1 = 0;
     int* newLengths;
     Matrix m;
 
@@ -112,12 +111,11 @@ int Func(const char* filename, const char* output)
     for(int i=0;i<toDeleteCount;i++){
         printf("%d ", toDelete[i]);
     }
-    printf("\n");
+    printf("\n"); 
 
     while(flag < maxLength){
         if(toDelete[delCounter] == flag)
         {
-            flag1 = 1;
             delCounter++;
             flag++;
             continue;
@@ -127,18 +125,25 @@ int Func(const char* filename, const char* output)
             if(m.lens[j] <= C) {
                 continue;
             }
-            if(flag1 == 1){
-                newLengths[j]--;
-            }
             m.els[j][C] = m.els[j][flag];
         }
-        flag1=0;
         C++;
         flag++;
     }
 
+    for(int i=0;i<toDeleteCount;i++)
+    {
+        for(int j=0;j<m.count;j++)
+        {
+            if(m.lens[j] > toDelete[i]){
+                newLengths[j] = m.lens[j] - i - 1;
+            }
+        }
+    }
+
     // Вывод данных для проверки
     for (int i = 0; i < m.count; i++) {
+        printf("Len: %d:  ", newLengths[i]);
         for (int j = 0; j < newLengths[i]; j++) {
             printf("%d ", m.els[i][j]);
         }
