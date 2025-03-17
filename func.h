@@ -1,0 +1,1 @@
+int Func(const char* filename, const char* output);
