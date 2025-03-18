@@ -109,9 +109,9 @@ int Func(const char* filename, const char* output)
     }
 
     for(int i=0;i<toDeleteCount;i++){
-        printf("%d ", toDelete[i]);
+        //printf("%d ", toDelete[i]);
     }
-    printf("\n"); 
+    //printf("\n"); 
 
     while(flag < maxLength){
         if(toDelete[delCounter] == flag)
@@ -120,7 +120,7 @@ int Func(const char* filename, const char* output)
             flag++;
             continue;
         }
-        printf("%d -> %d\n", flag, C);
+        //printf("%d -> %d\n", flag, C);
         for(int j=0;j<m.count;j++){
             if(m.lens[j] <= C) {
                 continue;
@@ -143,9 +143,9 @@ int Func(const char* filename, const char* output)
     }
     
 
-    // Вывод данных для проверки
+    // Вывод
     for (int i = 0; i < m.count; i++) {
-        printf("Len: %d:  ", newLengths[i]);
+        //printf("Len: %d:  ", newLengths[i]);
         for (int j = 0; j < newLengths[i]; j++) {
             printf("%d ", m.els[i][j]);
         }
@@ -159,6 +159,7 @@ int Func(const char* filename, const char* output)
     }
     free(m.els);
     free(m.lens);
-
+    free(toDelete);
+    free(newLengths);
     return 0;
 }
